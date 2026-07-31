@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: live probe of /.well-known/ on MetroPCS hosts
+host: https://www.metropcs.com
+note: >-
+  www.metropcs.com is a 301 redirect to www.metrobyt-mobile.com (Metro by
+  T-Mobile). The only 200 under /.well-known/ is security.txt, and it is served
+  as a non-conformant HTML page (not RFC 9116 format) whose body references the
+  parent T-Mobile Bugcrowd bug-bounty program. No OpenID/OAuth discovery,
+  api-catalog, or ai-plugin surface is present. MetroPCS publishes no developer
+  API.
+documents:
+- path: /.well-known/security.txt
+  status: 200
+  file: metropcs-security.txt
+  note: non-conformant HTML; references https://bugcrowd.com/t-mobile
+- path: /.well-known/openid-configuration
+  status: 301
+- path: /.well-known/oauth-authorization-server
+  status: 301
+- path: /.well-known/api-catalog
+  status: 301
+- path: /.well-known/ai-plugin.json
+  status: 301
